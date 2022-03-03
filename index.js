@@ -8,29 +8,9 @@ const URL =
   apiKey +
   '&units=metric&q=';
 for (let elem of cityElems) {
-  //  button clicked = f display(Genova-Torino-Milano-Roma)
-  //{
-  /*
-  var request = XMLHttpRequest();
-  attesa
-  request.onload = funzioneCallback;
-  f funzioneCallback(){
-    if stato == 200{
-      dataObject = JSON.parse(request.response);
-      temperatura = dataObject.main.temp;
-      document.getElementById("risposta") -> temperatura;
-      
-    }else{
-      document.getElementById("risposta") -> "Errore";
-    }
-  };
-  chiamata get
-  request.open();
-  metodo che chiama in callback onload
-  request.send();
-   */
-  //}
   elem.onclick = () => display(elem.innerHTML);
+  elem.onmouseover = () => elem.style.color="red";
+  elem.onmouseout = () => elem.style.color = "black";
 }
 
 // Funzione collegata ai bottoni
