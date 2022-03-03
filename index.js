@@ -10,7 +10,11 @@ const URL =
 for (let elem of cityElems) {
   elem.onclick = () => display(elem.innerHTML);
 }
-
+var chiediMedia = document.getElementById("media");
+chiediMedia.onclick = () => document.getElementById("risposta_media").innerText = calcolaMedia();
+function calcolaMedia(){
+  return 0;
+}
 // Funzione collegata ai bottoni
 function display(city) {
   var request = new XMLHttpRequest(); // Costruzione dell'oggetto "request"
