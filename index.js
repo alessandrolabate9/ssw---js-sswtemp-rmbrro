@@ -8,28 +8,6 @@ const URL =
   apiKey +
   '&units=metric&q=';
 for (let elem of cityElems) {
-  //  button clicked = f display(Genova-Torino-Milano-Roma)
-  //{
-  /*
-  var request = XMLHttpRequest();
-  attesa
-  request.onload = funzioneCallback;
-  f funzioneCallback(){
-    if stato == 200{
-      dataObject = JSON.parse(request.response);
-      temperatura = dataObject.main.temp;
-      document.getElementById("risposta") -> temperatura;
-      
-    }else{
-      document.getElementById("risposta") -> "Errore";
-    }
-  };
-  chiamata get
-  request.open();
-  metodo che chiama in callback onload
-  request.send();
-   */
-  //}
   elem.onclick = () => display(elem.innerHTML);
 }
 
@@ -42,8 +20,9 @@ function display(city) {
     // funzione definita arrow
     if (request.status === 200) {
       var dataObject = JSON.parse(request.response);
+      console.log(dataObject);
       document.getElementById('risposta').innerHTML =
-        'A ' + city + ' ci sono ' + dataObject.main.temp + ' gradi';
+        'A ' + city + ' ci sono ' + dataObject.main.temp + ' gradi e ' + dataObject.main.pressure + " mb (pressione)";
     } else {
       document.getElementById('risposta').innerText = 'Errore';
     }
