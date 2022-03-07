@@ -10,24 +10,22 @@ const URL =
 for (let elem of cityElems) {
   elem.onclick = () => display(elem.innerHTML);
 }
-var chiediMedia = document.getElementById("media");
+/*var chiediMedia = document.getElementById("media");
 chiediMedia.onclick = () => document.getElementById("risposta_media").innerText = calcolaMedia();
 function calcolaMedia(){
   return 0;
-}
+}*/
 // Funzione collegata ai bottoni
 function display(city) {
   var request = new XMLHttpRequest(); // Costruzione dell'oggetto "request"
-
   // Funzione callback invocata quando la request termina
   request.onload = function () {
     // funzione definita arrow
-    if (request.status === 200) {
+    if (request.status === 200){
       var dataObject = JSON.parse(request.response);
-      console.log(dataObject);
       document.getElementById('risposta').innerHTML =
         'A ' + city + ' ci sono ' + dataObject.main.temp + ' gradi e ' + dataObject.main.pressure + " mb (pressione)";
-    } else {
+    }else{
       document.getElementById('risposta').innerText = 'Errore';
     }
   };
