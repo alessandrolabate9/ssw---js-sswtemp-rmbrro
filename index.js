@@ -39,3 +39,24 @@ function calc_avg(city){
   return main_temperature;
 };
 
+// Funzione collegata ai bottoni
+function display(city) {
+  var request = new XMLHttpRequest(); // Costruzione dell'oggetto "request"
+
+  // Funzione callback invocata quando la request termina
+  request.onload = function () {
+    // funzione definita arrow
+    if (request.status === 200) {
+      var dataObject = JSON.parse(request.response);
+      document.getElementById('risposta').innerHTML =
+        'A ' + city + ' ci sono ' + dataObject.main.temp + ' gradi';
+    } else {
+      document.getElementById('risposta').innerText = 'Errore';
+    }
+  };
+
+  // Applico il metodo "open"
+  request.open('GET', URL + city, true);
+  // Applico il metodo send (al termine chiamerà il callback "onload")
+  request.send();
+}
