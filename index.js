@@ -16,8 +16,8 @@ calcola_media.onclick = () => {
 function calc_avg(city){
   var request = new XMLHttpRequest();
   request.onload = function(){
-      if (request.get == 200){
-
+      if (request.status === 200){
+        
       }
       else{
         window.alert("Errore!");
