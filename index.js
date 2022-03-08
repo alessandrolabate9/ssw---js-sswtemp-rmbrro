@@ -9,7 +9,7 @@ const URL =
   apiKey +
   '&units=metric&q=';
 for (let e of cityElems){
-  e.onclick = display(e.innerHTML);
+  e.onclick = () => {display(e.innerHTML)};
 }
 
 var calcola_media = document.getElementById("media");
@@ -21,7 +21,10 @@ calcola_media.onclick = () => {
 function calc_avg(city){
   var request = new XMLHttpRequest();
   var temperatura;
-  request.onload = main_temperature;
+  request.onload = () => {
+    
+  };
+  console.log(main_temperature());
   function main_temperature(){
       if (request.status === 200){
           var dataObject = JSON.parse(request.response);
