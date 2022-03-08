@@ -22,19 +22,19 @@ function calc_avg(city){
   var request = new XMLHttpRequest();
   var temperatura;
   request.onload = () => {
-    
+    if (request.status === 200){
+      var dataObject = JSON.parse(request.response);
+      temperatura = dataObject.main.temp;
+      console.log("1 - ",temperatura);
+      return temperatura;
+  }
+  else{
+    window.alert("Errore!");
+  }
   };
   console.log(main_temperature());
   function main_temperature(){
-      if (request.status === 200){
-          var dataObject = JSON.parse(request.response);
-          temperatura = dataObject.main.temp;
-          console.log("1 - ",temperatura);
-          return temperatura;
-      }
-      else{
-        window.alert("Errore!");
-      }
+
   };
   request.open('GET', URL + city, true);
   request.send();
