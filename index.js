@@ -15,8 +15,13 @@ calcola_media.onclick = () => {
 };
 function calc_avg(city){
   var request = new XMLHttpRequest();
-  request.onload();
-  request.open();
+  request.onload = function(){
+      if request.get == 200{}
+      else{
+        window.alert("Errore!");
+      }
+  };
+  request.open('GET', URL + city, true);
   request.send();
   return calcolo;
 }
